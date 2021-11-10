@@ -3,7 +3,7 @@ import CartContext from "../../store/cart-context";
 import Modal from "../UI/Modal";
 import styles from "./Cart.module.css";
 import CartItem from "./CartItem";
-import Checkout from "./Checkout2";
+import Checkout from "./Checkout";
 
 const Cart = (props) => {
   const [orderStatus, setOrderStatus] = useState(false);

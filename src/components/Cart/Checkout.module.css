@@ -63,3 +63,9 @@
   border-color: #aa0b20;
   background-color: #ffeff1;
 }
+
+.error {
+  color: #aa0b20;
+  margin: 0;
+  padding: 0;
+}

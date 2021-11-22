@@ -60,12 +60,12 @@ const Cart = (props) => {
         )}
         {hasItems && !orderStatus && (
           <button onClick={buttonClickHandler} className={styles.button}>
-            Order
+            Confirm
           </button>
         )}
         {hasItems && orderStatus && (
           <button type="submit" form="Confirm-Order-Form" className={styles.button}>
-            Confirm
+            Order
           </button>
         )}
       </div>

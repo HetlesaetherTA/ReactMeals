@@ -13,7 +13,7 @@ const AvailableMeals = (props) => {
     // try to fetch API json file
     try {
       response = await fetch(
-        "https://reactmeals-d5c59-default-rtdb.europe-west1.firebasedatabase.app/meals/-Mo33TdzuUcRo5O3268l.json"
+        process.env.REACT_APP_DB_GET_URL
         );
 
       if (!response.ok) {

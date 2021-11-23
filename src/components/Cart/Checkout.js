@@ -66,7 +66,7 @@ const Checkout = (props) => {
       };
 
       await fetch(
-        "https://reactmeals-d5c59-default-rtdb.europe-west1.firebasedatabase.app/meals/orders.json",
+        process.env.REACT_APP_DB_POST_URL,
         {
           method: "POST",
           body: JSON.stringify(order),

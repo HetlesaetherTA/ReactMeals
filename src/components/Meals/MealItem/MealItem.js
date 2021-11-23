@@ -5,17 +5,17 @@ import CartContext from "../../../store/cart-context";
 
 const MealItem = (props) => {
   const cartCtx = useContext(CartContext);
-    const price = `$${props.price.toFixed(2)}`;
+  const price = `$${props.price.toFixed(2)}`;
 
-    const addToCartHandler = amount => {
-      cartCtx.addItem({
-        id: props.id,
-        name: props.name,
-        price: props.price,
-        amount: amount,
-      });
-    }
-    
+  const addToCartHandler = (amount) => {
+    cartCtx.addItem({
+      id: props.id,
+      name: props.name,
+      price: props.price,
+      amount: amount,
+    });
+  };
+
   return (
     <li className={styles.meal}>
       <div>
@@ -24,10 +24,10 @@ const MealItem = (props) => {
         <div className={styles.price}>{price}</div>
       </div>
       <div>
-      <MealItemForm onAddToCart={addToCartHandler} id={props.id}/>
+        <MealItemForm onAddToCart={addToCartHandler} id={props.id} />
       </div>
     </li>
   );
 };
 
-export default MealItem
+export default MealItem;

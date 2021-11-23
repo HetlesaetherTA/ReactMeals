@@ -7,6 +7,7 @@ import Checkout from "./Checkout";
 
 const Cart = (props) => {
   const [orderStatus, setOrderStatus] = useState(false);
+  const [orderPlaced, setOrderPlaced] = useState(false);
 
   const cartCtx = useContext(CartContext);
 
@@ -40,14 +41,18 @@ const Cart = (props) => {
     setOrderStatus(true);
   };
 
-  return (
-    <Modal onClose={props.onClose}>
+  const confirmOrder = () => {
+    setOrderPlaced(true);
+  };
+
+  const normal = (
+    <div>
       {cartItems}
       <div className={styles.total}>
         <span>Total Amount</span>
         <span>{totalAmount}</span>
       </div>
-      {orderStatus && <Checkout />}
+      {orderStatus && <Checkout onOrderSent={confirmOrder} />}
       <div className={styles.actions}>
         {!orderStatus ? (
           <button className={styles["button--alt"]} onClick={props.onClose}>
@@ -64,11 +69,21 @@ const Cart = (props) => {
           </button>
         )}
         {hasItems && orderStatus && (
-          <button type="submit" form="Confirm-Order-Form" className={styles.button}>
+          <button
+            type="submit"
+            form="Confirm-Order-Form"
+            className={styles.button}
+          >
             Order
           </button>
         )}
       </div>
+    </div>
+  );
+
+  return (
+    <Modal onClose={props.onClose}>
+      {orderPlaced ? <p>Order Placed</p> : normal}
     </Modal>
   );
 };
